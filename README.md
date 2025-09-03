@@ -29,9 +29,9 @@ The server will start on `http://127.0.0.1:9191` and automatically load mappings
 
 ### 2. Access go/ links
 
-- Visit `http://127.0.0.1:9191/go/docs` to redirect to Python docs
-- Visit `http://127.0.0.1:9191/go/github` to redirect to GitHub
 - Visit `http://127.0.0.1:9191/` to see all available mappings
+- Use `http://127.0.0.1:9191/<name>` to access a specific link (example: `/test`)
+  - Example: `http://127.0.0.1:9191/gh` → redirects to GitHub
 
 ### 3. Update mappings in real-time
 
@@ -43,7 +43,7 @@ Example:
 ```json
 {
     "docs": "https://docs.python.org/3/",
-    "github": "https://github.com/",
+    "gh": "https://github.com/",
     "newlink": "https://example.com"
 }
 ```
@@ -69,7 +69,7 @@ This provides a menu-driven interface to add, remove, and view mappings.
 2. In another terminal, run: `python update_mappings.py`
 3. Add a new mapping: `go/test → https://example.com`
 4. The server automatically detects the change and loads the new mapping
-5. Visit `http://127.0.0.1:9191/go/test` to test the new link
+5. Visit `http://127.0.0.1:9191/test` to test the new link
 
 ## File Format
 
