@@ -19,7 +19,7 @@ def add_mapping(name, url):
         
         # Write back to file
         with open('mappings.json', 'w') as f:
-            json.dump(mappings, f, indent=4)
+            json.dump(mappings, f, indent=4, sort_keys=True)
         
         print(f"Added mapping: go/{name} → {url}")
         return True
@@ -40,7 +40,7 @@ def remove_mapping(name):
             
             # Write back to file
             with open('mappings.json', 'w') as f:
-                json.dump(mappings, f, indent=4)
+                json.dump(mappings, f, indent=4, sort_keys=True)
             
             print(f"Removed mapping: go/{name}")
             return True
@@ -58,7 +58,8 @@ def show_mappings():
             mappings = json.load(f)
         
         print("\nCurrent mappings:")
-        for name, url in mappings.items():
+        for name in sorted(mappings.keys()):
+            url = mappings[name]
             print(f"  go/{name} → {url}")
         print()
     except Exception as e:
